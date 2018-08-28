@@ -1,0 +1,34 @@
+﻿<Window x:Class="WpfTwainSimpleDemo.SelectDeviceManagerModeWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Device Manager Mode" Height="106" Width="270" ResizeMode="NoResize" WindowStartupLocation="CenterOwner" WindowStyle="ToolWindow">
+    <Window.Resources>
+        <Style TargetType="RadioButton">
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Width" Value="75" />
+            <Setter Property="Height" Value="23" />
+            <Setter Property="Margin" Value="3" />
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <RadioButton Name="use32BitDevicesRadioButton" Grid.Column="0">Use 32-bit devices</RadioButton>
+        <RadioButton Name="use64BitDevicesRadioButton" Grid.Column="1">Use 64-bit devices</RadioButton>
+
+        <StackPanel Margin="3,0" Orientation="Horizontal" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Right">
+            <Button Name="okButton" IsDefault="True" Click="okButton_Click">OK</Button>
+            <Button Name="buttonCancel" IsCancel="True">Cancel</Button>
+        </StackPanel>
+    </Grid>
+</Window>

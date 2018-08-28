@@ -9,6 +9,14 @@ namespace WpfTwainSimpleDemo
     public partial class MainWindow : Window
     {
 
+        #region Fields
+
+        Device _device;
+
+        #endregion
+
+
+
         #region Constructor
 
         public MainWindow()
@@ -52,6 +60,13 @@ namespace WpfTwainSimpleDemo
                         }
                     }
 
+                    // if 64-bit TWAIN2 device manager is used
+                    if (System.IntPtr.Size == 8 && deviceManager.IsTwain2Compatible)
+                    {
+                        if (!InitTwain2DeviceManagerMode(deviceManager))
+                            return;
+                    }
+
                     // open the device manager
                     deviceManager.Open();
 
@@ -70,19 +85,19 @@ namespace WpfTwainSimpleDemo
                     }
 
                     // get reference to the selected device
-                    Device device = deviceManager.DefaultDevice;
+                    _device = deviceManager.DefaultDevice;
 
                     // set scan settings
-                    device.ShowUI = (bool)showUiCheckBox.IsChecked;
-                    device.ShowIndicators = (bool)showIndicatorsCheckBox.IsChecked;
-                    device.DisableAfterAcquire = !device.ShowUI;
-                    device.CloseAfterModalAcquire = false;
+                    _device.ShowUI = (bool)showUiCheckBox.IsChecked;
+                    _device.ShowIndicators = (bool)showIndicatorsCheckBox.IsChecked;
+                    _device.DisableAfterAcquire = !_device.ShowUI;
+                    _device.CloseAfterModalAcquire = false;
 
                     AcquireModalState acquireModalState;
                     do
                     {
                         // synchronously acquire image from device
-                        acquireModalState = device.AcquireModal();
+                        acquireModalState = _device.AcquireModal();
                         switch (acquireModalState)
                         {
                             case AcquireModalState.ImageAcquired:
@@ -91,10 +106,10 @@ namespace WpfTwainSimpleDemo
                                     image1.Source = null;
 
                                 // set a bitmap source in the image control
-                                image1.Source = device.AcquiredImage.GetAsBitmapSource();
+                                image1.Source = _device.AcquiredImage.GetAsBitmapSource();
 
                                 // dispose an acquired image
-                                device.AcquiredImage.Dispose();
+                                _device.AcquiredImage.Dispose();
                                 break;
 
                             case AcquireModalState.ScanCanceled:
@@ -102,14 +117,15 @@ namespace WpfTwainSimpleDemo
                                 break;
 
                             case AcquireModalState.ScanFailed:
-                                MessageBox.Show(string.Format("Scan is failed: {0}", device.ErrorString));
+                                MessageBox.Show(string.Format("Scan is failed: {0}", _device.ErrorString));
                                 break;
                         }
                     }
                     while (acquireModalState != AcquireModalState.None);
 
                     // close the device
-                    device.Close();
+                    _device.Close();
+                    _device = null;
 
                     // close the device manager
                     deviceManager.Close();
@@ -123,6 +139,58 @@ namespace WpfTwainSimpleDemo
             {
                 // enable application UI
                 scanImagesButton.IsEnabled = true;
+            }
+        }
+
+        /// <summary>
+        /// Initializes the device manager mode.
+        /// </summary>
+        /// <param name="deviceManager">The TWAIN device manager.</param>
+        private bool InitTwain2DeviceManagerMode(DeviceManager deviceManager)
+        {
+            // create a window that allows to view and edit mode of 64-bit TWAIN2 device manager
+            SelectDeviceManagerModeWindow window = new SelectDeviceManagerModeWindow();
+            // initialize window
+            window.Owner = this;
+            window.Use32BitDevices = deviceManager.Are32BitDevicesUsed;
+
+            // show dialog
+            if (window.ShowDialog() == true)
+            {
+                // if device manager mode is changed
+                if (window.Use32BitDevices != deviceManager.Are32BitDevicesUsed)
+                {
+                    try
+                    {
+                        // if 32-bit devices must be used
+                        if (window.Use32BitDevices)
+                            deviceManager.Use32BitDevices();
+                        else
+                            deviceManager.Use64BitDevices();
+                    }
+                    catch (TwainDeviceManagerException ex)
+                    {
+                        // show dialog with error message
+                        MessageBox.Show(ex.Message, "TWAIN device manager", MessageBoxButton.OK, MessageBoxImage.Error);
+
+                        return false;
+                    }
+                }
+            }
+            else
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (_device != null)
+            {
+                if (_device.State != DeviceState.Closed)
+                    _device.Close();
             }
         }
 
