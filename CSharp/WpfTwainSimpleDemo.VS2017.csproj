@@ -78,7 +78,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xaml" />
-    <Reference Include="Vintasoft.WpfTwain, Version=10.3.8.1, Culture=neutral, PublicKeyToken=153caf29a10d2e31, processorArchitecture=MSIL">
+    <Reference Include="Vintasoft.WpfTwain">
       <HintPath>packages\Vintasoft.WpfTwain.AnyCPU.10.3.8.1\lib\net40\Vintasoft.WpfTwain.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
