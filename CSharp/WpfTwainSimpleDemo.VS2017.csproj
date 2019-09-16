@@ -79,7 +79,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xaml" />
     <Reference Include="Vintasoft.WpfTwain">
-      <HintPath>packages\Vintasoft.WpfTwain.AnyCPU.10.3.9.1\lib\net40\Vintasoft.WpfTwain.dll</HintPath>
+      <HintPath>packages\Vintasoft.WpfTwain.AnyCPU.10.3.10.1\lib\net40\Vintasoft.WpfTwain.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
