@@ -3,7 +3,7 @@
 Demo application shows how to acquire images from TWAIN device in WPF using a few strings of code. Demo uses functionality of <a href="http://www.vintasoft.com/vstwain-dotnet-index.html">VintaSoft Twain .NET SDK</a>. Source codes for C# and VB.NET are available.
 
 <h2>Screenshot</h2>
-<img src=http://www.vintasoft.com/images/screenshots/twain/vintasoft-wpf-twain-simple-demo.png alt="VintaSoft WPF TWAIN Simple Demo">
+<img src="vintasoft-wpf-twain-simple-demo.png" alt="VintaSoft WPF TWAIN Simple Demo">
 
 
 <h2>Download</h2>
