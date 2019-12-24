@@ -1,4 +1,8 @@
-﻿using System.Windows;
+﻿using System;
+using System.ComponentModel;
+using System.IO;
+using System.Windows;
+
 using Vintasoft.WpfTwain;
 
 namespace WpfTwainSimpleDemo
@@ -47,18 +51,6 @@ namespace WpfTwainSimpleDemo
                 {
                     // try to find TWAIN device manager
                     deviceManager.IsTwain2Compatible = (bool)twain2CheckBox.IsChecked;
-                    // if TWAIN device manager is not found
-                    if (!deviceManager.IsTwainAvailable)
-                    {
-                        // try to find another TWAIN device manager
-                        deviceManager.IsTwain2Compatible = (bool)!twain2CheckBox.IsChecked;
-                        // if TWAIN device manager is not found
-                        if (!deviceManager.IsTwainAvailable)
-                        {
-                            MessageBox.Show("TWAIN device manager is not found.");
-                            return;
-                        }
-                    }
 
                     // if 64-bit TWAIN2 device manager is used
                     if (System.IntPtr.Size == 8 && deviceManager.IsTwain2Compatible)
@@ -133,7 +125,35 @@ namespace WpfTwainSimpleDemo
             }
             catch (TwainException ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(GetFullExceptionMessage(ex));
+            }
+            catch (Exception ex)
+            {
+                LicenseException licenseException = GetLicenseException(ex);
+                if (licenseException != null)
+                {
+                    // show information about licensing exception
+                    MessageBox.Show(string.Format("{0}: {1}", licenseException.GetType().Name, licenseException.Message), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+
+                    string[] dirs = new string[] { ".", "..", @"..\..\..\", @"..\..\..\..\..\", @"..\..\..\..\..\..\..\" };
+                    // for each directory
+                    for (int i = 0; i < dirs.Length; i++)
+                    {
+                        string filename = System.IO.Path.Combine(dirs[i], "VSTwainNetEvaluationLicenseManager.exe");
+                        // if VintaSoft Evaluation License Manager exists in directory
+                        if (System.IO.File.Exists(filename))
+                        {
+                            // start Vintasoft Evaluation License Manager for getting the evaluation license
+                            System.Diagnostics.Process process = new System.Diagnostics.Process();
+                            process.StartInfo.FileName = filename;
+                            process.Start();
+                        }
+                    }
+                }
+                else
+                {
+                    throw;
+                }
             }
             finally
             {
@@ -171,7 +191,7 @@ namespace WpfTwainSimpleDemo
                     catch (TwainDeviceManagerException ex)
                     {
                         // show dialog with error message
-                        MessageBox.Show(ex.Message, "TWAIN device manager", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show(GetFullExceptionMessage(ex), "TWAIN device manager", MessageBoxButton.OK, MessageBoxImage.Error);
 
                         return false;
                     }
@@ -192,6 +212,42 @@ namespace WpfTwainSimpleDemo
                 if (_device.State != DeviceState.Closed)
                     _device.Close();
             }
+        }
+
+        /// <summary>
+        /// Returns the message of exception and inner exceptions.
+        /// </summary>
+        private string GetFullExceptionMessage(System.Exception ex)
+        {
+            System.Text.StringBuilder sb = new System.Text.StringBuilder();
+            sb.AppendLine(ex.Message);
+
+            System.Exception innerException = ex.InnerException;
+            while (innerException != null)
+            {
+                if (ex.Message != innerException.Message)
+                    sb.AppendLine(string.Format("Inner exception: {0}", innerException.Message));
+                innerException = innerException.InnerException;
+            }
+
+            return sb.ToString();
+        }
+
+        /// <summary>
+        /// Returns the license exception from specified exception.
+        /// </summary>
+        /// <param name="exceptionObject">The exception object.</param>
+        /// <returns>Instance of <see cref="LicenseException"/>.</returns>
+        private static LicenseException GetLicenseException(object exceptionObject)
+        {
+            Exception ex = exceptionObject as Exception;
+            if (ex == null)
+                return null;
+            if (ex is LicenseException)
+                return (LicenseException)exceptionObject;
+            if (ex.InnerException != null)
+                return GetLicenseException(ex.InnerException);
+            return null;
         }
 
         #endregion
