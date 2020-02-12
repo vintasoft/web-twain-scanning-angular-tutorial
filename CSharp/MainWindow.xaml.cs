@@ -135,7 +135,7 @@ namespace WpfTwainSimpleDemo
                     // show information about licensing exception
                     MessageBox.Show(string.Format("{0}: {1}", licenseException.GetType().Name, licenseException.Message), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 
-                    string[] dirs = new string[] { ".", "..", @"..\..\..\", @"..\..\..\..\..\", @"..\..\..\..\..\..\..\" };
+                    string[] dirs = new string[] { ".", "..", @"..\..\", @"..\..\..\", @"..\..\..\..\..\", @"..\..\..\..\..\..\..\" };
                     // for each directory
                     for (int i = 0; i < dirs.Length; i++)
                     {
@@ -147,6 +147,7 @@ namespace WpfTwainSimpleDemo
                             System.Diagnostics.Process process = new System.Diagnostics.Process();
                             process.StartInfo.FileName = filename;
                             process.Start();
+                            break;
                         }
                     }
                 }

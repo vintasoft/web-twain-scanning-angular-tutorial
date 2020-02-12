@@ -82,7 +82,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Vintasoft.WpfTwain" Version="11.0.0.3" />
+    <PackageReference Include="Vintasoft.WpfTwain" Version="11.0.1.1" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -116,10 +116,6 @@
     <Resource Include="App.ico" />
     <None Include="Resources\Net\VintasoftTwainService.exe">
       <Link>VintasoftTwainService.exe</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Resources\VSTwainNetEvaluationLicenseManager.exe">
-      <Link>VSTwainNetEvaluationLicenseManager.exe</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="_readme.txt" />
