@@ -52,7 +52,6 @@
     <Compile Include="MainWindow.xaml.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SelectDeviceManagerModeWindow.xaml.cs" />
-    <Compile Include="VintasoftWpfTwainLicense.cs" />
     <Content Include="App.ico" />
     <None Include="Resources\NetCore\VintasoftTwainService.dll">
       <Link>VintasoftTwainService.dll</Link>
