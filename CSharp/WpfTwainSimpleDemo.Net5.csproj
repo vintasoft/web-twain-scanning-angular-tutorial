@@ -44,7 +44,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Vintasoft.WpfTwain" Version="12.0.2.1" />
+    <PackageReference Include="Vintasoft.WpfTwain" Version="12.0.3.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -53,15 +53,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SelectDeviceManagerModeWindow.xaml.cs" />
     <Content Include="App.ico" />
-    <None Include="Resources\NetCore\VintasoftTwainService.dll">
+    <None Include="Resources\DotNet5\VintasoftTwainService.dll">
       <Link>VintasoftTwainService.dll</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\NetCore\VintasoftTwainService.exe">
+    <None Include="Resources\DotNet5\VintasoftTwainService.exe">
       <Link>VintasoftTwainService.exe</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\NetCore\VintasoftTwainService.runtimeconfig.json">
+    <None Include="Resources\DotNet5\VintasoftTwainService.runtimeconfig.json">
       <Link>VintasoftTwainService.runtimeconfig.json</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
