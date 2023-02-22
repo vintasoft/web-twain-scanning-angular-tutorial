@@ -10,7 +10,7 @@ using System.Windows;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("VintaSoft Ltd.")]
 [assembly: AssemblyProduct("WPF Twain Simple Demo")]
-[assembly: AssemblyCopyright("Copyright VintaSoft Ltd. 2022")]
+[assembly: AssemblyCopyright("Copyright VintaSoft Ltd. 2023")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -49,5 +49,5 @@ using System.Windows;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("12.2.3.1")]
-[assembly: AssemblyFileVersion("12.2.3.1")]
+[assembly: AssemblyVersion("14.0.0.1")]
+[assembly: AssemblyFileVersion("14.0.0.1")]

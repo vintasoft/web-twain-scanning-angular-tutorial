@@ -82,7 +82,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Vintasoft.WpfTwain" Version="12.2.3.1" />
+    <PackageReference Include="Vintasoft.WpfTwain" Version="14.0.0.1" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
