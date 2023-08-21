@@ -1,4 +1,4 @@
-# Vintasoft Web TWAIN Scanning Angular Tutorial
+# Vintasoft Web TWAIN Scanning Tutorial for Angular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.0.
 The project uses <a href="https://www.vintasoft.com/vstwain-dotnet-index.html" target="_blank">VintaSoft TWAIN .NET SDK</a> and demonstrates how to:
