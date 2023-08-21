@@ -7,7 +7,7 @@ The project uses <a href="https://www.vintasoft.com/vstwain-dotnet-index.html" t
 * Acquire images from TWAIN device
 * Preview scanned images
 
-##Usage
+## Usage
 If you want to read tutorial, which describes how to create this project from scratch, please read tutorial <a href="https://www.vintasoft.com/docs/vstwain-dotnet-web/Programming-Twain_Web-Tutorials-Acquire_images_from_TWAIN_scanner_in_Angular.html" target="_blank">Acquire images from TWAIN scanner in Angular application</a>.
 
 If you want to use this ready-to-use project, please do the following steps:
