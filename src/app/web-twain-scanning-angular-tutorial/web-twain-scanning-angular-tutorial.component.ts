@@ -61,10 +61,6 @@ export class WebTwainScanningAngularTutorialComponent {
       alert(ex);
     }
     finally {
-      if (twainDevice != null) {
-        // close the device
-        twainDevice.close();
-      }
       // close the device manager
       twainDeviceManager.close();
     }
