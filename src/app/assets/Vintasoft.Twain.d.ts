@@ -5,7 +5,7 @@
 // granted by VintaSoft Ltd. This notice may not be removed or otherwise
 // altered under any circumstances.
 // This code may NOT be used apart of the VintaSoft product.
-// NAMESPACE
+﻿// NAMESPACE
 declare module Vintasoft.Twain {
 
   // ===== ENUMS =====
@@ -633,9 +633,14 @@ declare module Vintasoft.Twain {
     get_OpenedDevice(): Vintasoft.Twain.WebTwainDeviceJS;
 
     /**
-     * Gets version of TWAIN web service.
+     * Gets version of VintaSoft Web TWAIN service.
      */
     get_TwainServiceVersion(): string;
+
+    /**
+     * Gets version of VintaSoft Web TWAIN API.
+     */
+    get_TwainApiVersion(): string;
 
     /**
      * Gets the identifier of TWAIN session.
