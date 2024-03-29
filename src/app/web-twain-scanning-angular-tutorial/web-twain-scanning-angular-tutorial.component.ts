@@ -164,11 +164,7 @@ export class WebTwainScanningAngularTutorialComponent {
 
   __openTwainDeviceManager(): Vintasoft.Twain.WebTwainDeviceManagerJS | null {
     // URL to the VintaSoft Web TWAIN service
-    let serviceUrl: string;
-    if (window.location.protocol == 'http:')
-      serviceUrl = 'http://localhost:25319/api/VintasoftTwainApi';
-    else
-      serviceUrl = 'https://localhost:25329/api/VintasoftTwainApi';
+    let serviceUrl: string = 'https://localhost:25329/api/VintasoftTwainApi';
     // a Web API controller that allows to work with TWAIN devices
     let twainService: Vintasoft.Shared.WebServiceControllerJS = new Vintasoft.Shared.WebServiceControllerJS(serviceUrl);
 

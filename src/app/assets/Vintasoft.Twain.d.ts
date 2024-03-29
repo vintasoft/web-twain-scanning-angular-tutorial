@@ -260,6 +260,11 @@ declare module Vintasoft.Twain {
      */
     static register(regUser: string, regUrl: string, regCode: string): void;
 
+    /**
+     * Returns the name of user OS.
+     */
+    static getUserOS(): string;
+
   }
 
   /**
@@ -1186,6 +1191,39 @@ declare module Vintasoft.Twain {
      */
     set_XferCount(value: number): void;
 
+    /**
+     * Gets name of scan source of SANE device.
+     */
+    get_SaneScanSource(): string;
+
+    /**
+     * Sets name of scan source of SANE device.
+     * @param value A name of scan source of SANE device.
+     */
+    set_SaneScanSource(value: string): void;
+
+    /**
+     * Gets name of scan mode of SANE device.
+     */
+    get_SaneScanMode(): string;
+
+    /**
+     * Sets name of scan mode of SANE device.
+     * @param value A name of scan mode of SANE device.
+     */
+    set_SaneScanMode(value: string): void;
+
+    /**
+     * Gets image resolution of SANE device.
+     */
+    get_SaneResolution(): number;
+
+    /**
+     * Sets image resolution of SANE device.
+     * @param value A name of scan mode of SANE device.
+     */
+    set_SaneResolution(value: number): void;
+
     // METHODS
 
     /**
@@ -1541,6 +1579,21 @@ declare module Vintasoft.Twain {
      * Returns supported units of measure.
      */
     getSupportedUnitOfMeasures(): Vintasoft.Twain.WebUnitOfMeasureEnumJS[];
+
+    /**
+     * Returns supported scan sources of SANE device.
+     */
+    getSupportedSaneScanSources(): string[];
+
+    /**
+     * Returns supported scan modes of SANE device.
+     */
+    getSupportedSaneScanModes(): string[];
+
+    /**
+     * Returns supported scan resolutions of SANE device.
+     */
+    getSupportedSaneResolutions(): number[];
 
     /**
      * Returns information about the default image layout rectangle of TWAIN device.
