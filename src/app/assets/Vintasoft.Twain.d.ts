@@ -510,7 +510,7 @@ declare module Vintasoft.Twain {
   }
 
   /**
-   * Represents settings for initializing of TWAIN device manager.
+   * Represents settings for initializing of TWAIN/SANE device manager.
    */
   class WebTwainDeviceManagerInitSettingsJS {
 
@@ -603,7 +603,7 @@ declare module Vintasoft.Twain {
   }
 
   /**
-   * Class that allows to work with TWAIN device manager.
+   * Class that allows to work with TWAIN/SANE device manager.
    */
   class WebTwainDeviceManagerJS {
 
@@ -655,23 +655,23 @@ declare module Vintasoft.Twain {
     // METHODS
 
     /**
-     * Gets a list of TWAIN devices installed in the system.
+     * Gets a list of TWAIN/SANE devices installed in the system.
      */
     get_Devices(): Vintasoft.Twain.WebTwainDeviceJS[];
 
     /**
-     * Gets the default TWAIN device.
+     * Gets the default TWAIN/SANE device.
      */
     get_DefaultDevice(): Vintasoft.Twain.WebTwainDeviceJS;
 
     /**
-     * Opens TWAIN device manager.
+     * Opens TWAIN/SANE device manager.
      * @param initSettings An instance of [see="WebTwainDeviceManagerInitSettingsJS"] class that defines initialization settings for TWAIN device manager.
      */
     open(initSettings: Vintasoft.Twain.WebTwainDeviceManagerInitSettingsJS): void;
 
     /**
-     * Sends an asynchronous request to open TWAIN device manager.
+     * Sends an asynchronous request to open TWAIN/SANE device manager.
      * @param initSettings An instance of [see="WebTwainDeviceManagerInitSettingsJS"] class that defines initialization settings for TWAIN device manager.
      * @param successFunc A function that will be executed if request is executed successfully. Function prototype: "successFunc(twainDeviceManager)", where 'twainDeviceManager' parameter is an instance of WebTwainDeviceManagerJS class.
      * @param errorFunc A function that will be executed if request is failed. Function prototype: "errorFunc(twainDeviceManager, errorMessage)", where 'twainDeviceManager' parameter is an instance of WebTwainDeviceManagerJS class, 'errorMessage' parameter is string that describes error.
@@ -679,23 +679,29 @@ declare module Vintasoft.Twain {
     openAsync(initSettings: Vintasoft.Twain.WebTwainDeviceManagerInitSettingsJS, successFunc: Function, errorFunc: Function): void;
 
     /**
-     * Closes TWAIN device manager.
+     * Closes TWAIN/SANE device manager.
      */
     close(): void;
 
     /**
-     * Sends an asynchronous request to close TWAIN device manager.
+     * Sends an asynchronous request to close TWAIN/SANE device manager.
      * @param successFunc A function that will be executed if request is executed successfully.<br /> Function prototype: "successFunc(twainDeviceManager)", where 'twainDeviceManager' parameter is an instance of [see="WebTwainDeviceManagerJS"] class.
      * @param errorFunc A function that will be executed if request is failed.<br /> Function prototype: "errorFunc(twainDeviceManager, errorMessage)", where 'twainDeviceManager' parameter is an instance of [see="WebTwainDeviceManagerJS"] class, 'errorMessage' parameter is string that describes error.
      */
     closeAsync(successFunc: Function, errorFunc: Function): void;
 
     /**
-     * Sends an asynchronous request to get a list of TWAIN devices installed in the system.
+     * Sends an asynchronous request to get a list of TWAIN/SANE devices installed in the system.
      * @param successFunc A function that will be executed if request is executed successfully.<br /> Function prototype: "successFunc(twainDeviceManager, twainDevices, defaultTwainDevice)", where 'twainDeviceManager' parameter is an instance of [see="WebTwainDeviceManagerJS"] class, 'twainDevices' parameter is an array of instances of [see="WebTwainDeviceJS"] class, 'defaultTwainDevice' parameter is an instance of [see="WebTwainDeviceJS"] class.
      * @param errorFunc A function that will be executed if request is failed.<br /> Function prototype: "errorFunc(twainDeviceManager, errorMessage)", where 'twainDeviceManager' parameter is an instance of [see="WebTwainDeviceManagerJS"] class, 'errorMessage' parameter is string that describes error.
      */
     getDevicesAsync(successFunc: Function, errorFunc: Function): void;
+
+    /**
+     * Finds TWAIN/SANE device by device name.
+     * @param deviceName The name of TWAIN/SANE device.
+     */
+    findDeviceByName(deviceName: string): object;
 
   }
 
@@ -782,7 +788,7 @@ declare module Vintasoft.Twain {
   }
 
   /**
-   * Class that allows to work with TWAIN device.
+   * Class that allows to work with TWAIN/SANE device.
    */
   class WebTwainDeviceJS {
 
@@ -1220,27 +1226,27 @@ declare module Vintasoft.Twain {
 
     /**
      * Sets image resolution of SANE device.
-     * @param value A name of scan mode of SANE device.
+     * @param value Resolution.
      */
     set_SaneResolution(value: number): void;
 
     // METHODS
 
     /**
-     * Opens TWAIN device.
+     * Opens TWAIN/SANE device.
      * @param showUI <b>True</b> - device UI must be shown; <b>false</b> - device UI must NOT be shown.
      * @param showIndicators <b>True</b> - device should show progress indicator during image scan process; <b>false</b> - device should not show progress indicator during image scan process. Default value is <b>true</b>.
      */
     open(showUI: boolean, showIndicators: boolean): void;
 
     /**
-     * Opens TWAIN device (device will show progress indicator during image scan process).
+     * Opens TWAIN/SANE device (device will show progress indicator during image scan process).
      * @param showUI <b>True</b> - device UI must be shown; <b>false</b> - device UI must NOT be shown.
      */
     open(showUI: boolean): void;
 
     /**
-     * Sends an asynchronous request to open TWAIN device.
+     * Sends an asynchronous request to open TWAIN/SANE device.
      * @param showUI <b>True</b> - device UI must be shown; <b>false</b> - device UI must NOT be shown.
      * @param showIndicators <b>True</b> - device should show progress indicator during image scan process; <b>false</b> - device should not show progress indicator during image scan process. Default value is <b>true</b>.
      * @param successFunc A function that will be executed if request is executed successfully.<br /> Function prototype: "successFunc(twainDevice)", where 'twainDevice' parameter is an instance of [see="WebTwainDeviceJS"] class.
@@ -1249,30 +1255,30 @@ declare module Vintasoft.Twain {
     openAsync(showUI: boolean, showIndicators: boolean, successFunc: Function, errorFunc: Function): void;
 
     /**
-     * Closes TWAIN device.
+     * Closes TWAIN/SANE device.
      */
     close(): void;
 
     /**
-     * Sends an asynchronous request to close TWAIN device.
+     * Sends an asynchronous request to close TWAIN/SANE device.
      * @param successFunc A function that will be executed if request is executed successfully.<br /> Function prototype: "successFunc(twainDevice)", where 'twainDevice' parameter is an instance of [see="WebTwainDeviceJS"] class.
      * @param errorFunc A function that will be executed if request is failed.<br /> Function prototype: "errorFunc(twainDevice, errorMessage)", where 'twainDevice' parameter is an instance of [see="WebTwainDeviceJS"] class, 'errorMessage' parameter is string that describes error.
      */
     closeAsync(successFunc: Function, errorFunc: Function): void;
 
     /**
-     * Does one step of synchronous image acquisition from TWAIN device.
+     * Does one step of synchronous image acquisition from TWAIN/SANE device.
      * @param isProgressResponseEnabled A value indicating whether web server should send response for image acquisition progress. If undefined, <b>false</b> is used.
      */
     acquireModalSync(isProgressResponseEnabled: boolean): Vintasoft.Twain.WebTwainDeviceAcquireModalResultJS;
 
     /**
-     * Does one step of synchronous image acquisition from TWAIN device (web server will not send response for image acquisition progress).
+     * Does one step of synchronous image acquisition from TWAIN/SANE device (web server will not send response for image acquisition progress).
      */
     acquireModalSync(): Vintasoft.Twain.WebTwainDeviceAcquireModalResultJS;
 
     /**
-     * Sends an asynchronous request to do one step of synchronous image acquisition from TWAIN device.
+     * Sends an asynchronous request to do one step of synchronous image acquisition from TWAIN/SANE device.
      * @param successFunc A function that will be executed if request is executed successfully.<br /> Function prototype: "successFunc(twainDevice, acquireModalResult)", where 'twainDevice' parameter is an instance of [see="WebTwainDeviceJS"] class, 'acquireModalResult' parameter is an instance of [see="WebTwainDeviceAcquireModalResultJS"] class.
      * @param errorFunc A function that will be executed if request is failed.<br /> Function prototype: "errorFunc(twainDevice, errorMessage)", where 'twainDevice' parameter is an instance of [see="WebTwainDeviceJS"] class, 'errorMessage' parameter is string that describes error.
      * @param isProgressResponseEnabled A value indicating whether web server should send response for image acquisition progress. Default value is True.
@@ -1280,7 +1286,7 @@ declare module Vintasoft.Twain {
     acquireModalAsync(successFunc: Function, errorFunc: Function, isProgressResponseEnabled: boolean): void;
 
     /**
-     * Sends an asynchronous request to do one step of synchronous image acquisition from TWAIN device. Response for image acquisition progress is not generated.
+     * Sends an asynchronous request to do one step of synchronous image acquisition from TWAIN/SANE device. Response for image acquisition progress is not generated.
      * @param successFunc A function that will be executed if request is executed successfully.<br /> Function prototype: "successFunc(twainDevice, acquireModalResult)", where 'twainDevice' parameter is an instance of [see="WebTwainDeviceJS"] class, 'acquireModalResult' parameter is an instance of [see="WebTwainDeviceAcquireModalResultJS"] class.
      * @param errorFunc A function that will be executed if request is failed.<br /> Function prototype: "errorFunc(twainDevice, errorMessage)", where 'twainDevice' parameter is an instance of [see="WebTwainDeviceJS"] class, 'errorMessage' parameter is string that describes error.
      */
@@ -1581,58 +1587,58 @@ declare module Vintasoft.Twain {
     getSupportedUnitOfMeasures(): Vintasoft.Twain.WebUnitOfMeasureEnumJS[];
 
     /**
-     * Returns supported scan sources of SANE device.
+     * Returns supported scan sources of opened SANE device.
      */
     getSupportedSaneScanSources(): string[];
 
     /**
-     * Returns supported scan modes of SANE device.
+     * Returns supported scan modes of opened SANE device.
      */
     getSupportedSaneScanModes(): string[];
 
     /**
-     * Returns supported scan resolutions of SANE device.
+     * Returns supported scan resolutions of opened SANE device.
      */
     getSupportedSaneResolutions(): number[];
 
     /**
-     * Returns information about the default image layout rectangle of TWAIN device.
+     * Returns information about the default image layout rectangle of TWAIN/SANE device.
      */
     getDefaultImageLayout(): Vintasoft.Twain.WebTwainImageLayoutJS;
 
     /**
-     * Sends an asynchronous request to get information about the default image layout rectangle of TWAIN device.
+     * Sends an asynchronous request to get information about the default image layout rectangle of TWAIN/SANE device.
      * @param successFunc A function that will be executed if request is executed successfully. Function prototype: "successFunc(twainDevice, imageLayout)", where 'twainDevice' parameter is an instance of WebTwainDeviceJS class, 'imageLayout' parameter is an object that contains information about the default image layout rectangle of TWAIN device.
      * @param errorFunc A function that will be executed if request is failed. Function prototype: "errorFunc(twainDevice, errorMessage)", where 'twainDevice' parameter is an instance of WebTwainDeviceJS class, 'errorMessage' parameter is string that describes error.
      */
     getDefaultImageLayoutAsync(successFunc: Function, errorFunc: Function): void;
 
     /**
-     * Returns information about the current image layout rectangle of TWAIN device.
+     * Returns information about the current image layout rectangle of TWAIN/SANE device.
      */
     getImageLayout(): Vintasoft.Twain.WebTwainImageLayoutJS;
 
     /**
-     * Sends an asynchronous request to get information about the current image layout rectangle of TWAIN device.
+     * Sends an asynchronous request to get information about the current image layout rectangle of TWAIN/SANE device.
      * @param successFunc A function that will be executed if request is executed successfully. Function prototype: "successFunc(twainDevice, imageLayout)", where 'twainDevice' parameter is an instance of WebTwainDeviceJS class, 'imageLayout' parameter is an object that contains information about current image layout rectangle of TWAIN device.
      * @param errorFunc A function that will be executed if request is failed. Function prototype: "errorFunc(twainDevice, errorMessage)", where 'twainDevice' parameter is an instance of WebTwainDeviceJS class, 'errorMessage' parameter is string that describes error.
      */
     getImageLayoutAsync(successFunc: Function, errorFunc: Function): void;
 
     /**
-     * Resets the image layout rectangle of TWAIN device.
+     * Resets the image layout rectangle of TWAIN/SANE device.
      */
     resetImageLayout(): void;
 
     /**
-     * Sends an asynchronous request to reset the image layout rectangle of TWAIN device.
+     * Sends an asynchronous request to reset the image layout rectangle of TWAIN/SANE device.
      * @param successFunc A function that will be executed if request is executed successfully. Function prototype: "successFunc(twainDevice)", where 'twainDevice' parameter is an instance of WebTwainDeviceJS class.
      * @param errorFunc A function that will be executed if request is failed. Function prototype: "errorFunc(twainDevice, errorMessage)", where 'twainDevice' parameter is an instance of WebTwainDeviceJS class, 'errorMessage' parameter is string that describes error.
      */
     resetImageLayoutAsync(successFunc: Function, errorFunc: Function): void;
 
     /**
-     * Sets the image layout rectangle of TWAIN device.
+     * Sets the image layout rectangle of TWAIN/SANE device.
      * @param x X-coordinate of image layout rectangle.
      * @param y Y-coordinate of image layout rectangle.
      * @param width Width of image layout rectangle.
@@ -1641,7 +1647,7 @@ declare module Vintasoft.Twain {
     setImageLayout(x: number, y: number, width: number, height: number): void;
 
     /**
-     * Sends an asynchronous request to set the image layout rectangle of TWAIN device.
+     * Sends an asynchronous request to set the image layout rectangle of TWAIN/SANE device.
      * @param x X-coordinate of image layout rectangle.
      * @param y Y-coordinate of image layout rectangle.
      * @param width Width of image layout rectangle.
