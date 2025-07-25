@@ -1,11 +1,4 @@
-// Copyright 2014-2025 VintaSoft LLC. All rights reserved.
-// This software is protected by International copyright laws.
-// Any copying, duplication, deployment, redistribution, modification or other
-// disposition hereof is STRICTLY PROHIBITED without an express written license
-// granted by VintaSoft LLC. This notice may not be removed or otherwise
-// altered under any circumstances.
-// This code may NOT be used apart of the VintaSoft product.
-// NAMESPACE
+﻿// NAMESPACE
 declare module Vintasoft.Twain {
 
   // ===== ENUMS =====
@@ -31,7 +24,7 @@ declare module Vintasoft.Twain {
   /**
    * Specifies available reduction methods for bit depth loss.
    */
-  class WebTwainBitDepthReductionModeEnumJS  extends Vintasoft.Shared.WebEnumItemBaseJS {
+  class WebTwainBitDepthReductionModeEnumJS extends Vintasoft.Shared.WebEnumItemBaseJS {
 
     constructor(value: string);
 
@@ -243,7 +236,6 @@ declare module Vintasoft.Twain {
     constructor(value: string);
 
   }
-
 
 
   // ===== CLASSES =====
@@ -873,17 +865,17 @@ declare module Vintasoft.Twain {
     get_IsWIA(): boolean;
 
     /**
-     * Gets a value indicating whether the device is TWAIN device.
+     * Gets a value indicating whether device is TWAIN device.
      */
     get_IsTwain(): boolean;
 
     /**
-     * Gets a value indicating whether the device is SANE device.
+     * Gets a value indicating whether device is SANE device.
      */
     get_IsSane(): boolean;
 
     /**
-     * Gets a value indicating whether the device is eSCL device.
+     * Gets a value indicating whether device is eSCL device.
      */
     get_IsEscl(): boolean;
 
@@ -943,13 +935,13 @@ declare module Vintasoft.Twain {
     /**
      * Gets bit depth reduction mode of images for current scan session.
      */
-    get_BitDepthReductionMode(): Vintasoft.Twain.WebTwainBitDepthReductionModeEnumJS ;
+    get_BitDepthReductionMode(): Vintasoft.Twain.WebTwainBitDepthReductionModeEnumJS;
 
     /**
      * Sets bit depth reduction mode of images for current scan session.
-     * @param value An instance of [see="WebTwainBitDepthReductionModeEnumJS "] class.
+     * @param value An instance of [see="WebTwainBitDepthReductionModeEnumJS"] class.
      */
-    set_BitDepthReductionMode(value: Vintasoft.Twain.WebTwainBitDepthReductionModeEnumJS ): void;
+    set_BitDepthReductionMode(value: Vintasoft.Twain.WebTwainBitDepthReductionModeEnumJS): void;
 
     /**
      * Gets brightness of gray/palette/color images for current scan session.
@@ -1265,15 +1257,15 @@ declare module Vintasoft.Twain {
     set_SaneResolution(value: number): void;
 
     /**
-     * Gets image resolution of SANE device.
+     * Gets the scan input source for eSCL device.
      */
-    get_EsclScanInputSource(): WebEsclScanInputSourceEnumJS;
+    get_EsclScanInputSource(): Vintasoft.Twain.WebEsclScanInputSourceEnumJS;
 
     /**
-     * Sets image resolution of SANE device.
+     * Sets the scan input source for eSCL device.
      * @param value The scan input source for eSCL device.
      */
-    set_EsclScanInputSource(value: WebEsclScanInputSourceEnumJS): void;
+    set_EsclScanInputSource(value: Vintasoft.Twain.WebEsclScanInputSourceEnumJS): void;
 
     /**
      * Gets the scan intent for eSCL device.
@@ -1289,13 +1281,13 @@ declare module Vintasoft.Twain {
     /**
      * Gets the scan color mode for eSCL device.
      */
-    get_EsclScanColorMode(): WebEsclScanColorModeEnumJS;
+    get_EsclScanColorMode(): Vintasoft.Twain.WebEsclScanColorModeEnumJS;
 
     /**
      * Sets the scan color mode for eSCL device.
      * @param value The scan color mode for eSCL device.
      */
-    set_EsclScanColorMode(value: WebEsclScanColorModeEnumJS): void;
+    set_EsclScanColorMode(value: Vintasoft.Twain.WebEsclScanColorModeEnumJS): void;
 
     /**
      * Gets the scan resolution for eSCL device.
@@ -1325,7 +1317,6 @@ declare module Vintasoft.Twain {
 
     /**
      * Opens TWAIN/SANE/eSCL device (device will not show UI but will show progress indicator during image scan process).
-     * @param showUI <b>True</b> - device UI must be shown; <b>false</b> - device UI must NOT be shown.
      */
     open(): void;
 
@@ -1688,22 +1679,22 @@ declare module Vintasoft.Twain {
     /**
      * Returns supported scan input sources of opened eSCL device.
      */
-    getSupportedEsclScanInputSources(): WebEsclScanInputSourceEnumJS[];
+    getSupportedEsclScanInputSources(): Vintasoft.Twain.WebEsclScanInputSourceEnumJS[];
 
     /**
      * Returns names of supported scan intents of opened eSCL device.
      */
-    getSupportedEsclScanIntents(): WebEsclScanInputSourceEnumJS[];
+    getSupportedEsclScanIntents(): string[];
 
     /**
      * Returns supported scan color modes of opened eSCL device.
      */
-    getSupportedEsclScanColorModes(): WebEsclScanInputSourceEnumJS[];
+    getSupportedEsclScanColorModes(): Vintasoft.Twain.WebEsclScanColorModeEnumJS[];
 
     /**
      * Returns supported scan resolutions of opened eSCL device.
      */
-    getSupportedEsclScanResolutions(): WebEsclScanInputSourceEnumJS[];
+    getSupportedEsclScanResolutions(): number[];
 
     /**
      * Returns information about the default image layout rectangle of TWAIN/SANE/eSCL device.
