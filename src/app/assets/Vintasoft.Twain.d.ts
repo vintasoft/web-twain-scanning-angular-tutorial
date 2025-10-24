@@ -226,24 +226,6 @@ declare module Vintasoft.Twain {
 
   }
 
-  /**
-   * Specifies available scan input sources for eSCL device.
-   */
-  class WebEsclScanInputSourceEnumJS extends Vintasoft.Shared.WebEnumItemBaseJS {
-
-    constructor(value: string);
-
-  }
-
-  /**
-   * Specifies available scan color modes for eSCL device.
-   */
-  class WebEsclScanColorModeEnumJS extends Vintasoft.Shared.WebEnumItemBaseJS {
-
-    constructor(value: string);
-
-  }
-
 
   // ===== CLASSES =====
 
@@ -528,7 +510,7 @@ declare module Vintasoft.Twain {
   }
 
   /**
-   * Represents settings for initializing of TWAIN/SANE/eSCL device manager.
+   * Represents settings for initializing of TWAIN/WIA/SANE/eSCL device manager.
    */
   class WebTwainDeviceManagerInitSettingsJS {
 
@@ -621,7 +603,7 @@ declare module Vintasoft.Twain {
   }
 
   /**
-   * Class that allows to work with TWAIN/SANE/eSCL device manager.
+   * Class that allows to work with TWAIN/WIA/SANE/eSCL device manager.
    */
   class WebTwainDeviceManagerJS {
 
@@ -673,23 +655,23 @@ declare module Vintasoft.Twain {
     // METHODS
 
     /**
-     * Gets a list of TWAIN/SANE/eSCL devices installed in the system.
+     * Gets a list of TWAIN/WIA/SANE/eSCL devices installed in the system.
      */
     get_Devices(): Vintasoft.Twain.WebTwainDeviceJS[];
 
     /**
-     * Gets the default TWAIN/SANE/eSCL device.
+     * Gets the default TWAIN/WIA/SANE/eSCL device.
      */
     get_DefaultDevice(): Vintasoft.Twain.WebTwainDeviceJS;
 
     /**
-     * Opens TWAIN/SANE/eSCL device manager.
+     * Opens TWAIN/WIA/SANE/eSCL device manager.
      * @param initSettings An instance of [see="WebTwainDeviceManagerInitSettingsJS"] class that defines initialization settings for TWAIN device manager.
      */
     open(initSettings: Vintasoft.Twain.WebTwainDeviceManagerInitSettingsJS): void;
 
     /**
-     * Sends an asynchronous request to open TWAIN/SANE/eSCL device manager.
+     * Sends an asynchronous request to open TWAIN/WIA/SANE/eSCL device manager.
      * @param initSettings An instance of [see="WebTwainDeviceManagerInitSettingsJS"] class that defines initialization settings for TWAIN device manager.
      * @param successFunc A function that will be executed if request is executed successfully. Function prototype: "successFunc(twainDeviceManager)", where 'twainDeviceManager' parameter is an instance of WebTwainDeviceManagerJS class.
      * @param errorFunc A function that will be executed if request is failed. Function prototype: "errorFunc(twainDeviceManager, errorMessage)", where 'twainDeviceManager' parameter is an instance of WebTwainDeviceManagerJS class, 'errorMessage' parameter is string that describes error.
@@ -697,116 +679,34 @@ declare module Vintasoft.Twain {
     openAsync(initSettings: Vintasoft.Twain.WebTwainDeviceManagerInitSettingsJS, successFunc: Function, errorFunc: Function): void;
 
     /**
-     * Closes TWAIN/SANE/eSCL device manager.
+     * Closes TWAIN/WIA/SANE/eSCL device manager.
      */
     close(): void;
 
     /**
-     * Sends an asynchronous request to close TWAIN/SANE/eSCL device manager.
+     * Sends an asynchronous request to close TWAIN/WIA/SANE/eSCL device manager.
      * @param successFunc A function that will be executed if request is executed successfully.<br /> Function prototype: "successFunc(twainDeviceManager)", where 'twainDeviceManager' parameter is an instance of [see="WebTwainDeviceManagerJS"] class.
      * @param errorFunc A function that will be executed if request is failed.<br /> Function prototype: "errorFunc(twainDeviceManager, errorMessage)", where 'twainDeviceManager' parameter is an instance of [see="WebTwainDeviceManagerJS"] class, 'errorMessage' parameter is string that describes error.
      */
     closeAsync(successFunc: Function, errorFunc: Function): void;
 
     /**
-     * Sends an asynchronous request to get a list of TWAIN/SANE/eSCL devices installed in the system.
+     * Sends an asynchronous request to get a list of TWAIN/WIA/SANE/eSCL devices installed in the system.
      * @param successFunc A function that will be executed if request is executed successfully.<br /> Function prototype: "successFunc(twainDeviceManager, twainDevices, defaultTwainDevice)", where 'twainDeviceManager' parameter is an instance of [see="WebTwainDeviceManagerJS"] class, 'twainDevices' parameter is an array of instances of [see="WebTwainDeviceJS"] class, 'defaultTwainDevice' parameter is an instance of [see="WebTwainDeviceJS"] class.
      * @param errorFunc A function that will be executed if request is failed.<br /> Function prototype: "errorFunc(twainDeviceManager, errorMessage)", where 'twainDeviceManager' parameter is an instance of [see="WebTwainDeviceManagerJS"] class, 'errorMessage' parameter is string that describes error.
      */
     getDevicesAsync(successFunc: Function, errorFunc: Function): void;
 
     /**
-     * Finds TWAIN/SANE/eSCL device by device name.
-     * @param deviceName The name of TWAIN/SANE/eSCL device.
+     * Finds TWAIN/WIA/SANE/eSCL device by device name.
+     * @param deviceName The name of TWAIN/WIA/SANE/eSCL device.
      */
     findDeviceByName(deviceName: string): object;
 
   }
 
   /**
-   * Class that allows to work with automatic document feeder of TWAIN device.
-   */
-  class WebTwainDeviceDocumentFeederJS {
-
-    // CONTSRUCTORS
-
-    /**
-     * Initializes a new instance of the [see= "WebTwainDeviceDocumentFeederJS"] class.
-     * @param device An instance of [see="WebTwainDeviceJS"] class.
-     */
-    constructor(device: Vintasoft.Twain.WebTwainDeviceJS);
-
-    // PROPERTIES
-
-    /**
-     * Gets a value that indicates whether the document feeder is enabled.
-     */
-    get_Enabled(): boolean;
-
-    /**
-     * Sets a value that indicates whether the document feeder is enabled.
-     * @param value A value that indicates whether the document feeder is enabled.
-     */
-    set_Enabled(value: boolean): void;
-
-    /**
-     * Gets a value that indicates whether the document feeder can detect paper.
-     */
-    get_PaperDetectable(): boolean;
-
-    /**
-     * Gets a value that indicates whether the document feeder is loaded.
-     */
-    get_Loaded(): boolean;
-
-    /**
-     * Gets the duplex mode supported by device.
-     */
-    get_DuplexMode(): Vintasoft.Twain.WebTwainDuplexModeEnumJS;
-
-    /**
-     * Gets a value that indicates whether the duplex scanning is enabled.
-     */
-    get_DuplexEnabled(): boolean;
-
-    /**
-     * Sets a value that indicates whether the duplex scanning is enabled.
-     * @param value A value that indicates whether the duplex scanning is enabled.
-     */
-    set_DuplexEnabled(value: boolean): void;
-
-    /**
-     * Gets a value that indicates whether the auto feed feature is enabled.
-     */
-    get_AutoFeed(): boolean;
-
-    /**
-     * Sets a value that indicates whether the auto feed feature is enabled.
-     * @param value A value that indicates whether the auto feed feature is enabled.
-     */
-    set_AutoFeed(value: boolean): void;
-
-    // METHODS
-
-    /**
-     * Feeds the page in the document feeder.
-     */
-    feedPage(): void;
-
-    /**
-     * Clears the page in the document feeder.
-     */
-    clearPage(): void;
-
-    /**
-     * Rewinds the page in the document feeder.
-     */
-    rewindPage(): void;
-
-  }
-
-  /**
-   * Class that allows to work with TWAIN/SANE/eSCL device.
+   * Class that allows to work with TWAIN/WIA/SANE/eSCL device.
    */
   class WebTwainDeviceJS {
 
@@ -867,14 +767,14 @@ declare module Vintasoft.Twain {
     get_IsTwain2Compatible(): boolean;
 
     /**
-     * Gets a value indicating whether the device is WIA device.
-     */
-    get_IsWIA(): boolean;
-
-    /**
      * Gets a value indicating whether device is TWAIN device.
      */
     get_IsTwain(): boolean;
+
+    /**
+     * Gets a value indicating whether device is WIA device.
+     */
+    get_IsWia(): boolean;
 
     /**
      * Gets a value indicating whether device is SANE device.
@@ -892,443 +792,436 @@ declare module Vintasoft.Twain {
     get_Is64Bit(): boolean;
 
     /**
-     * Gets a value indicating whether device has the automatic document feeder.
-     */
-    get_HasFeeder(): boolean;
-
-    /**
-     * Gets a value indicating whether device has flatbed.
+     * Gets a value indicating whether TWAIN/WIA/SANE/eSCL device has flatbed.
      */
     get_HasFlatbed(): boolean;
 
     /**
-     * Gets an object that allows to manipulate the document feeder of TWAIN device.
+     * Gets a value that indicates whether the flatbed of TWAIN/WIA/SANE/eSCL device is enabled.
      */
-    get_DocumentFeeder(): Vintasoft.Twain.WebTwainDeviceDocumentFeederJS;
+    get_IsFlatbedEnabled(): boolean;
 
     /**
-     * Gets a value indicating whether the brightness should be automatically detected.
+     * Sets a value that indicates whether the flatbed of TWAIN/WIA/SANE/eSCL device is enabled.
+     * @param value A value that indicates whether the flatbed is enabled.
+     */
+    set_IsFlatbedEnabled(value: boolean): void;
+
+    /**
+     * Gets a value indicating whether TWAIN/WIA/SANE/eSCL device has the automatic document feeder.
+     */
+    get_HasFeeder(): boolean;
+
+    /**
+     * Gets a value that indicates whether the document feeder of TWAIN/WIA/SANE/eSCL device is enabled.
+     */
+    get_IsFeederEnabled(): boolean;
+
+    /**
+     * Sets a value that indicates whether the document feeder of TWAIN/WIA/SANE/eSCL device is enabled.
+     * @param value A value that indicates whether the document feeder is enabled.
+     */
+    set_IsFeederEnabled(value: boolean): void;
+
+    /**
+     * Gets a value that indicates whether the document feeder of TWAIN device can detect paper.
+     */
+    get_PaperDetectable(): boolean;
+
+    /**
+     * Gets a value that indicates whether the document feeder of TWAIN device is loaded.
+     */
+    get_IsFeederLoaded(): boolean;
+
+    /**
+     * Gets a value indicating whether the automatic document feeder of TWAIN/WIA/SANE/eSCL device can work in duplex mode.
+     */
+    get_HasDuplex(): boolean;
+
+    /**
+     * Gets the duplex mode supported by TWAIN device.
+     */
+    get_DuplexMode(): Vintasoft.Twain.WebTwainDuplexModeEnumJS;
+
+    /**
+     * Gets a value that indicates whether the TWAIN/WIA/SANE/eSCL device scans images in duplex mode.
+     */
+    get_IsDuplexEnabled(): boolean;
+
+    /**
+     * Sets a value that indicates whether the TWAIN/WIA/SANE/eSCL device scans images in duplex mode.
+     * @param value A value that indicates whether the duplex scanning is enabled.
+     */
+    set_IsDuplexEnabled(value: boolean): void;
+
+    /**
+     * Gets a value indicating whether the TWAIN device should detect brightness automatically.
      */
     get_AutoBright(): boolean;
 
     /**
-     * Sets a value indicating whether the brightness should be automatically detected.
+     * Sets a value indicating whether the TWAIN device should detect brightness automatically.
      * @param value A value indicating whether the brightness should be automatically detected.
      */
     set_AutoBright(value: boolean): void;
 
     /**
-     * Gets a value indicating whether the device should capture the number of images indicated by the value of XferCount without waiting for the Application to request the image transfers.
+     * Gets a value that indicates whether the auto feed feature of TWAIN device is enabled.
+     */
+    get_AutoFeed(): boolean;
+
+    /**
+     * Sets a value that indicates whether the auto feed feature of TWAIN device is enabled.
+     * @param value A value that indicates whether the auto feed feature is enabled.
+     */
+    set_AutoFeed(value: boolean): void;
+
+    /**
+     * Gets a value indicating whether the TWAIN device should capture the number of images indicated by the value of XferCount without waiting for the Application to request the image transfers.
      */
     get_AutoScan(): boolean;
 
     /**
-     * Sets a value indicating whether the device should capture the number of images indicated by the value of XferCount without waiting for the Application to request the image transfers.
+     * Sets a value indicating whether the TWAIN device should capture the number of images indicated by the value of XferCount without waiting for the Application to request the image transfers.
      * @param value A value indicating whether the device should capture the number of images indicated by the value of XferCount without waiting for the Application to request the image transfers.
      */
     set_AutoScan(value: boolean): void;
 
     /**
-     * Gets bit depth of images for current scan session.
+     * Gets bit depth of images for current scan session for TWAIN device.
      */
     get_BitDepth(): number;
 
     /**
-     * Sets bit depth of images for current scan session.
+     * Sets bit depth of images for current scan session for TWAIN device.
      * @param value Bit depth of images for current scan session.
      */
     set_BitDepth(value: number): void;
 
     /**
-     * Gets bit depth reduction mode of images for current scan session.
+     * Gets bit depth reduction mode of images for current scan session for TWAIN device.
      */
     get_BitDepthReductionMode(): Vintasoft.Twain.WebTwainBitDepthReductionModeEnumJS;
 
     /**
-     * Sets bit depth reduction mode of images for current scan session.
+     * Sets bit depth reduction mode of images for current scan session for TWAIN device.
      * @param value An instance of [see="WebTwainBitDepthReductionModeEnumJS"] class.
      */
     set_BitDepthReductionMode(value: Vintasoft.Twain.WebTwainBitDepthReductionModeEnumJS): void;
 
     /**
-     * Gets brightness of gray/palette/color images for current scan session.
+     * Gets brightness of gray/palette/color images for current scan session for TWAIN/WIA device.
      */
     get_Brightness(): number;
 
     /**
-     * Sets brightness of gray/palette/color images for current scan session.
+     * Sets brightness of gray/palette/color images for current scan session for TWAIN/WIA device.
      * @param value The brightness of gray/palette/color images for current scan session.
      */
     set_Brightness(value: number): void;
 
     /**
-     * Gets count of images in the device buffer.
+     * Gets count of images in the device buffer for TWAIN device.
      */
     get_BufferedImageCount(): number;
 
     /**
-     * Sets a value that defines how device buffers must be cleared.
+     * Sets a value that defines how buffers of TWAIN device must be cleared.
      * @param value An instance of [see="WebTwainClearBufferModeEnumJS"] class.
      */
     set_ClearBuffers(value: Vintasoft.Twain.WebTwainClearBufferModeEnumJS): void;
 
     /**
-     * Gets contrast of gray/palette/color images for current scan session.
+     * Gets contrast of gray/palette/color images for current scan session for TWAIN/WIA device.
      */
     get_Contrast(): number;
 
     /**
-     * Sets contrast of gray/palette/color images for current scan session.
+     * Sets contrast of gray/palette/color images for current scan session for TWAIN/WIA device.
      * @param value The contrast of gray/palette/color images for current scan session.
      */
     set_Contrast(value: number): void;
 
     /**
-     * Gets file format for images when File transfer mode is used.
+     * Gets the file format for images when TWAIN device uses the File transfer mode.
      */
     get_FileFormat(): Vintasoft.Twain.WebTwainImageFileFormatEnumJS;
 
     /**
-     * Sets file format for images when File transfer mode is used.
+     * Sets the file format for images when TWAIN device uses the File transfer mode.
      * @param value An instance of [see="WebTwainImageFileFormatEnumJS"] class.
      */
     set_FileFormat(value: Vintasoft.Twain.WebTwainImageFileFormatEnumJS): void;
 
     /**
-     * Gets the JPEG quality for acquired images saved as JPEG files when File transfer mode is used.
+     * Gets the JPEG quality for acquired images saved as JPEG files when TWAIN device uses the File transfer mode.
      */
     get_FileJpegQuality(): number;
 
     /**
-     * Sets the JPEG quality for acquired images saved as JPEG files when File transfer mode is used.
+     * Sets the JPEG quality for acquired images saved as JPEG files when TWAIN device uses the File transfer mode.
      * @param value The JPEG quality for acquired images saved as JPEG files when File transfer mode is used.
      */
     set_FileJpegQuality(value: number): void;
 
     /**
-     * Gets halftones for bit depth reduction of images for current scan session.
+     * Gets halftones for bit depth reduction of images for current scan session for TWAIN device.
      */
     get_Halftones(): string;
 
     /**
-     * Sets halftones for bit depth reduction of images for current scan session.
+     * Sets halftones for bit depth reduction of images for current scan session for TWAIN device.
      * @param value The halftones for bit depth reduction of images for current scan session.
      */
     set_Halftones(value: string): void;
 
     /**
-     * Gets image compression for images when Memory or File transfer mode is used.
+     * Gets image compression for images when TWAIN device uses the Memory or File transfer mode.
      */
     get_ImageCompression(): Vintasoft.Twain.WebTwainImageCompressionEnumJS;
 
     /**
-     * Sets image compression for images when Memory or File transfer mode is used.
+     * Sets image compression for images when TWAIN device uses the Memory or File transfer mode.
      * @param value An instance of [see="WebTwainImageCompressionEnumJS"] class.
      */
     set_ImageCompression(value: Vintasoft.Twain.WebTwainImageCompressionEnumJS): void;
 
     /**
-     * Gets image filter for current scan session.
+     * Gets image filter for current scan session for TWAIN device.
      */
     get_ImageFilter(): Vintasoft.Twain.WebTwainImageFilterEnumJS;
 
     /**
-     * Sets image filter for current scan session.
+     * Sets image filter for current scan session for TWAIN device.
      * @param value An instance of [see="WebTwainImageFilterEnumJS"] class.
      */
     set_ImageFilter(value: Vintasoft.Twain.WebTwainImageFilterEnumJS): void;
 
     /**
-     * Gets a value that defines how the batch job must be processed.
+     * Gets a value that defines how TWAIN device must process the batch job.
      */
     get_JobControl(): Vintasoft.Twain.WebTwainJobControlEnumJS;
 
     /**
-     * Sets a value that defines how the batch job must be processed.
+     * Sets a value that defines how TWAIN device must process the batch job.
      * @param value An instance of [see="WebTwainJobControlEnumJS"] class.
      */
     set_JobControl(value: Vintasoft.Twain.WebTwainJobControlEnumJS): void;
 
     /**
-     * Gets a value indicating whether the lamp of device is on.
+     * Gets a value indicating whether the lamp of TWAIN device is on.
      */
     get_LampState(): boolean;
 
     /**
-     * Sets a value indicating whether the lamp of device is on.
+     * Sets a value indicating whether the lamp of TWAIN device is on.
      * @param value A value indicating whether the lamp of device is on.
      */
     set_LampState(value: boolean): void;
 
     /**
-     * Gets the light path, which must be used for the image capturing.
+     * Gets the light path for TWAIN device.
      */
     get_LightPath(): Vintasoft.Twain.WebTwainLightPathEnumJS;
 
     /**
-     * Sets the light path, which must be used for the image capturing.
+     * Sets the light path for TWAIN device.
      * @param value An instance of [see="WebTwainLightPathEnumJS"] class.
      */
     set_LightPath(value: Vintasoft.Twain.WebTwainLightPathEnumJS): void;
 
     /**
-     * Gets a value that defines general color characteristic of the light source for current scan session.
+     * Gets a value that defines general color characteristic of the light source for current scan session for TWAIN device.
      */
     get_LightSource(): Vintasoft.Twain.WebTwainLightSourceEnumJS;
 
     /**
-     * Sets a value that defines general color characteristic of the light source for current scan session.
+     * Sets a value that defines general color characteristic of the light source for current scan session for TWAIN device.
      * @param value An instance of [see="WebTwainLightSourceEnumJS"] class.
      */
     set_LightSource(value: Vintasoft.Twain.WebTwainLightSourceEnumJS): void;
 
     /**
-     * Gets number of images that the device can buffer when AutoScan is enabled.
+     * Gets number of images that the TWAIN device can buffer when AutoScan is enabled.
      */
     get_MaxBatchBuffers(): number;
 
     /**
-     * Sets number of images that the device can buffer when AutoScan is enabled.
+     * Sets number of images that the TWAIN device can buffer when AutoScan is enabled.
      * @param value The number of images that the device can buffer when AutoScan is enabled.
      */
     set_MaxBatchBuffers(value: number): void;
 
     /**
-     * Gets the noise filter for current scan session.
+     * Gets the noise filter for current scan session for TWAIN device.
      */
     get_NoiseFilter(): Vintasoft.Twain.WebTwainNoiseFilterEnumJS;
 
     /**
-     * Sets the noise filter for current scan session.
+     * Sets the noise filter for current scan session for TWAIN device.
      * @param value An instance of [see="WebTwainNoiseFilterEnumJS"] class.
      */
     set_NoiseFilter(value: Vintasoft.Twain.WebTwainNoiseFilterEnumJS): void;
 
     /**
-     * Gets a value indicating whether the device is powered up and available.
+     * Gets a value indicating whether the TWAIN device is powered up and available.
      */
     get_Online(): boolean;
 
     /**
-     * Gets the page size detection mode for current scan session.
+     * Gets the page size detection mode for current scan session for TWAIN device.
      */
     get_PageAutoSize(): Vintasoft.Twain.WebTwainPageAutoSizeEnumJS;
 
     /**
-     * Sets the page size detection mode for current scan session.
+     * Sets the page size detection mode for current scan session for TWAIN device.
      * @param value An instance of [see="WebTwainPageAutoSizeEnumJS"] class.
      */
     set_PageAutoSize(value: Vintasoft.Twain.WebTwainPageAutoSizeEnumJS): void;
 
     /**
-     * Gets orientation of images for current scan session.
+     * Gets orientation of images for current scan session for TWAIN/WIA device.
      */
     get_PageOrientation(): Vintasoft.Twain.WebTwainPageOrientationEnumJS;
 
     /**
-     * Sets orientation of images for current scan session.
+     * Sets orientation of images for current scan session for TWAIN/WIA device.
      * @param value An instance of [see="WebTwainPageOrientationEnumJS"] class.
      */
     set_PageOrientation(value: Vintasoft.Twain.WebTwainPageOrientationEnumJS): void;
 
     /**
-     * Gets page size for current scan session.
+     * Gets page size for current scan session for TWAIN/WIA device.
      */
     get_PageSize(): Vintasoft.Twain.WebTwainPageSizeEnumJS;
 
     /**
-     * Sets page size for current scan session.
+     * Sets page size for current scan session for TWAIN/WIA device.
      * @param value An instance of [see="WebTwainPageSizeEnumJS"] class.
      */
     set_PageSize(value: Vintasoft.Twain.WebTwainPageSizeEnumJS): void;
 
     /**
-     * Gets pixel flavor for current scan session.
+     * Gets pixel flavor for current scan session for TWAIN device.
      */
     get_PixelFlavor(): Vintasoft.Twain.WebTwainPixelFlavorEnumJS;
 
     /**
-     * Sets pixel flavor for current scan session.
+     * Sets pixel flavor for current scan session for TWAIN device.
      * @param value An instance of [see="WebTwainPixelFlavorEnumJS"] class.
      */
     set_PixelFlavor(value: Vintasoft.Twain.WebTwainPixelFlavorEnumJS): void;
 
     /**
-     * Gets pixel type of images for current scan session.
+     * Gets pixel type of images for current scan session for TWAIN/WIA/SANE/eSCL device.
      */
     get_PixelType(): Vintasoft.Twain.WebTwainPixelTypeEnumJS;
 
     /**
-     * Sets pixel type of images for current scan session.
+     * Sets pixel type of images for current scan session for TWAIN/WIA/SANE/eSCL device.
      * @param value An instance of [see="WebTwainPixelTypeEnumJS"] class.
      */
     set_PixelType(value: Vintasoft.Twain.WebTwainPixelTypeEnumJS): void;
 
     /**
-     * Gets X-axis resolution of images for current scan session.
+     * Gets X-axis resolution of images for current scan session for TWAIN/WIA/SANE/eSCL device.
      */
     get_XResolution(): number;
 
     /**
-     * Sets X-axis resolution of images for current scan session.
+     * Sets X-axis resolution of images for current scan session for TWAIN/WIA/SANE/eSCL device.
      * @param value X-axis resolution.
      */
     set_XResolution(value: number): void;
 
     /**
-     * Gets Y-axis resolution of images for current scan session.
+     * Gets Y-axis resolution of images for current scan session for TWAIN/WIA/SANE/eSCL device.
      */
     get_YResolution(): number;
 
     /**
-     * Sets Y-axis resolution of images for current scan session.
+     * Sets Y-axis resolution of images for current scan session for TWAIN/WIA/SANE/eSCL device.
      * @param value Y-axis resolution.
      */
     set_YResolution(value: number): void;
 
     /**
-     * Gets threshold of black-white images for current scan session.
+     * Gets threshold of black-white images for current scan session for TWAIN device.
      */
     get_Threshold(): number;
 
     /**
-     * Sets threshold of black-white images for current scan session.
+     * Sets threshold of black-white images for current scan session for TWAIN device.
      * @param value A threshold for black-white images.
      */
     set_Threshold(value: number): void;
 
     /**
-     * Gets transfer mode for current scan session.
+     * Gets transfer mode for current scan session for TWAIN device.
      */
     get_TransferMode(): Vintasoft.Twain.WebTwainTransferModeEnumJS;
 
     /**
-     * Sets transfer mode for current scan session.
+     * Sets transfer mode for current scan session for TWAIN device.
      * @param value An instance of [see="WebTwainTransferModeEnumJS"] class.
      */
     set_TransferMode(value: Vintasoft.Twain.WebTwainTransferModeEnumJS): void;
 
     /**
-     * Gets unit of measure for current scan session.
+     * Gets unit of measure for current scan session for TWAIN/WIA/SANE/eSCL device.
      */
     get_UnitOfMeasure(): Vintasoft.Twain.WebTwainUnitOfMeasureEnumJS;
 
     /**
-     * Sets unit of measure for current scan session.
+     * Sets unit of measure for current scan session for TWAIN/WIA/SANE/eSCL device.
      * @param value An instance of [see="Vintasoft.Twain.WebTwainUnitOfMeasureEnumJS"] class.
      */
     set_UnitOfMeasure(value: Vintasoft.Twain.WebTwainUnitOfMeasureEnumJS): void;
 
     /**
-     * Gets count of images application wants to receive from the device.
+     * Gets count of images application wants to receive from the TWAIN/WIA device.
      */
     get_XferCount(): number;
 
     /**
-     * Sets count of images application wants to receive from the device.
+     * Sets count of images application wants to receive from the TWAIN/WIA device.
      * @param value Count of images application wants to receive from the device.
      */
     set_XferCount(value: number): void;
 
     /**
-     * Gets name of scan source of SANE device.
+     * Gets the scan intent for WIA/eSCL device.
      */
-    get_SaneScanSource(): string;
+    get_ScanIntent(): string;
 
     /**
-     * Sets name of scan source of SANE device.
-     * @param value A name of scan source of SANE device.
+     * Sets the scan intent for WIA/eSCL device.
+     * @param value The scan intent for WIA/eSCL device.<br /> Possible values for WIA device: "None", "ColorImage", "GrayscaleImage", "Text", "Mask".
      */
-    set_SaneScanSource(value: string): void;
-
-    /**
-     * Gets name of scan mode of SANE device.
-     */
-    get_SaneScanMode(): string;
-
-    /**
-     * Sets name of scan mode of SANE device.
-     * @param value A name of scan mode of SANE device.
-     */
-    set_SaneScanMode(value: string): void;
-
-    /**
-     * Gets image resolution of SANE device.
-     */
-    get_SaneResolution(): number;
-
-    /**
-     * Sets image resolution of SANE device.
-     * @param value Resolution.
-     */
-    set_SaneResolution(value: number): void;
-
-    /**
-     * Gets the scan input source for eSCL device.
-     */
-    get_EsclScanInputSource(): Vintasoft.Twain.WebEsclScanInputSourceEnumJS;
-
-    /**
-     * Sets the scan input source for eSCL device.
-     * @param value The scan input source for eSCL device.
-     */
-    set_EsclScanInputSource(value: Vintasoft.Twain.WebEsclScanInputSourceEnumJS): void;
-
-    /**
-     * Gets the scan intent for eSCL device.
-     */
-    get_EsclScanIntent(): string;
-
-    /**
-     * Sets the scan intent for eSCL device.
-     * @param value The scan intent for eSCL device.
-     */
-    set_EsclScanIntent(value: string): void;
-
-    /**
-     * Gets the scan color mode for eSCL device.
-     */
-    get_EsclScanColorMode(): Vintasoft.Twain.WebEsclScanColorModeEnumJS;
-
-    /**
-     * Sets the scan color mode for eSCL device.
-     * @param value The scan color mode for eSCL device.
-     */
-    set_EsclScanColorMode(value: Vintasoft.Twain.WebEsclScanColorModeEnumJS): void;
-
-    /**
-     * Gets the scan resolution for eSCL device.
-     */
-    get_EsclScanResolution(): number;
-
-    /**
-     * Sets the scan resolution for eSCL device.
-     * @param value The scan resolution for eSCL device.
-     */
-    set_EsclScanResolution(value: number): void;
+    set_ScanIntent(value: string): void;
 
     // METHODS
 
     /**
-     * Opens TWAIN/SANE/eSCL device.
+     * Opens TWAIN/WIA/SANE/eSCL device.
      * @param showUI <b>True</b> - device UI must be shown; <b>false</b> - device UI must NOT be shown.
      * @param showIndicators <b>True</b> - device should show progress indicator during image scan process; <b>false</b> - device should not show progress indicator during image scan process. Default value is <b>true</b>.
      */
     open(showUI: boolean, showIndicators: boolean): void;
 
     /**
-     * Opens TWAIN/SANE/eSCL device (device will show progress indicator during image scan process).
+     * Opens TWAIN/WIA/SANE/eSCL device (device will show progress indicator during image scan process).
      * @param showUI <b>True</b> - device UI must be shown; <b>false</b> - device UI must NOT be shown.
      */
     open(showUI: boolean): void;
 
     /**
-     * Opens TWAIN/SANE/eSCL device (device will not show UI but will show progress indicator during image scan process).
+     * Opens TWAIN/WIA/SANE/eSCL device (device will not show UI but will show progress indicator during image scan process).
      */
     open(): void;
 
     /**
-     * Sends an asynchronous request to open TWAIN/SANE/eSCL device.
+     * Sends an asynchronous request to open TWAIN/WIA/SANE/eSCL device.
      * @param showUI <b>True</b> - device UI must be shown; <b>false</b> - device UI must NOT be shown.
      * @param showIndicators <b>True</b> - device should show progress indicator during image scan process; <b>false</b> - device should not show progress indicator during image scan process. Default value is <b>true</b>.
      * @param successFunc A function that will be executed if request is executed successfully.<br /> Function prototype: "successFunc(twainDevice)", where 'twainDevice' parameter is an instance of [see="WebTwainDeviceJS"] class.
@@ -1337,30 +1230,30 @@ declare module Vintasoft.Twain {
     openAsync(showUI: boolean, showIndicators: boolean, successFunc: Function, errorFunc: Function): void;
 
     /**
-     * Closes TWAIN/SANE/eSCL device.
+     * Closes TWAIN/WIA/SANE/eSCL device.
      */
     close(): void;
 
     /**
-     * Sends an asynchronous request to close TWAIN/SANE/eSCL device.
+     * Sends an asynchronous request to close TWAIN/WIA/SANE/eSCL device.
      * @param successFunc A function that will be executed if request is executed successfully.<br /> Function prototype: "successFunc(twainDevice)", where 'twainDevice' parameter is an instance of [see="WebTwainDeviceJS"] class.
      * @param errorFunc A function that will be executed if request is failed.<br /> Function prototype: "errorFunc(twainDevice, errorMessage)", where 'twainDevice' parameter is an instance of [see="WebTwainDeviceJS"] class, 'errorMessage' parameter is string that describes error.
      */
     closeAsync(successFunc: Function, errorFunc: Function): void;
 
     /**
-     * Does one step of synchronous image acquisition from TWAIN/SANE/eSCL device.
+     * Does one step of synchronous image acquisition from TWAIN/WIA/SANE/eSCL device.
      * @param isProgressResponseEnabled A value indicating whether web server should send response for image acquisition progress. If undefined, <b>false</b> is used.
      */
     acquireModalSync(isProgressResponseEnabled: boolean): Vintasoft.Twain.WebTwainDeviceAcquireModalResultJS;
 
     /**
-     * Does one step of synchronous image acquisition from TWAIN/SANE/eSCL device (web server will not send response for image acquisition progress).
+     * Does one step of synchronous image acquisition from TWAIN/WIA/SANE/eSCL device (web server will not send response for image acquisition progress).
      */
     acquireModalSync(): Vintasoft.Twain.WebTwainDeviceAcquireModalResultJS;
 
     /**
-     * Sends an asynchronous request to do one step of synchronous image acquisition from TWAIN/SANE/eSCL device.
+     * Sends an asynchronous request to do one step of synchronous image acquisition from TWAIN/WIA/SANE/eSCL device.
      * @param successFunc A function that will be executed if request is executed successfully.<br /> Function prototype: "successFunc(twainDevice, acquireModalResult)", where 'twainDevice' parameter is an instance of [see="WebTwainDeviceJS"] class, 'acquireModalResult' parameter is an instance of [see="WebTwainDeviceAcquireModalResultJS"] class.
      * @param errorFunc A function that will be executed if request is failed.<br /> Function prototype: "errorFunc(twainDevice, errorMessage)", where 'twainDevice' parameter is an instance of [see="WebTwainDeviceJS"] class, 'errorMessage' parameter is string that describes error.
      * @param isProgressResponseEnabled A value indicating whether web server should send response for image acquisition progress. Default value is True.
@@ -1368,7 +1261,7 @@ declare module Vintasoft.Twain {
     acquireModalAsync(successFunc: Function, errorFunc: Function, isProgressResponseEnabled: boolean): void;
 
     /**
-     * Sends an asynchronous request to do one step of synchronous image acquisition from TWAIN/SANE/eSCL device. Response for image acquisition progress is not generated.
+     * Sends an asynchronous request to do one step of synchronous image acquisition from TWAIN/WIA/SANE/eSCL device. Response for image acquisition progress is not generated.
      * @param successFunc A function that will be executed if request is executed successfully.<br /> Function prototype: "successFunc(twainDevice, acquireModalResult)", where 'twainDevice' parameter is an instance of [see="WebTwainDeviceJS"] class, 'acquireModalResult' parameter is an instance of [see="WebTwainDeviceAcquireModalResultJS"] class.
      * @param errorFunc A function that will be executed if request is failed.<br /> Function prototype: "errorFunc(twainDevice, errorMessage)", where 'twainDevice' parameter is an instance of [see="WebTwainDeviceJS"] class, 'errorMessage' parameter is string that describes error.
      */
@@ -1599,74 +1492,79 @@ declare module Vintasoft.Twain {
     setCapabilitiesAsync(twainCapabilitiesInfo: object[], successFunc: Function, errorFunc: Function): void;
 
     /**
-     * Returns supported bit depths.
+     * Returns supported bit depths for opened TWAIN device.
      */
     getSupportedBitDepths(): number[];
 
     /**
-     * Returns supported brightness values.
+     * Returns supported brightness values for opened TWAIN/WIA device.
      */
     getSupportedBrightnesValues(): Vintasoft.Twain.WebTwainCapabilitySupportedValuesJS;
 
     /**
-     * Returns supported contrast values.
+     * Returns supported contrast values for opened TWAIN/WIA device.
      */
     getSupportedContrastValues(): Vintasoft.Twain.WebTwainCapabilitySupportedValuesJS;
 
     /**
-     * Returns supported file formats.
+     * Returns supported file formats for opened TWAIN device.
      */
     getSupportedFileFormats(): Vintasoft.Twain.WebTwainImageFileFormatEnumJS[];
 
     /**
-     * Returns supported image compressions.
+     * Returns supported image compressions for opened TWAIN device.
      */
     getSupportedImageCompressions(): Vintasoft.Twain.WebTwainImageCompressionEnumJS[];
 
     /**
-     * Returns supported image filters.
+     * Returns supported image filters for opened TWAIN device.
      */
     getSupportedImageFilters(): Vintasoft.Twain.WebTwainImageFilterEnumJS[];
 
     /**
-     * Returns supported page orientations.
+     * Returns supported page orientations for opened TWAIN/WIA device.
      */
     getSupportedPageOrientations(): Vintasoft.Twain.WebTwainPageOrientationEnumJS[];
 
     /**
-     * Returns supported page sizes.
+     * Returns supported page sizes for opened TWAIN/WIA device.
      */
     getSupportedPageSizes(): Vintasoft.Twain.WebTwainPageSizeEnumJS[];
 
     /**
-     * Returns supported pixel flavors.
+     * Returns supported pixel flavors for opened TWAIN device.
      */
     getSupportedPixelFlavors(): Vintasoft.Twain.WebTwainPixelFlavorEnumJS[];
 
     /**
-     * Returns supported pixel types.
+     * Returns supported pixel types for opened TWAIN/WIA/SANE/eSCL device.
      */
     getSupportedPixelTypes(): Vintasoft.Twain.WebTwainPixelTypeEnumJS[];
 
     /**
-     * Returns supported X-axis resolution for images.
+     * Returns supported X-axis resolution for images for opened TWAIN/WIA/SANE/eSCL device.
      */
     getSupportedXResolutions(): Vintasoft.Twain.WebTwainCapabilitySupportedValuesJS;
 
     /**
-     * Returns supported Y-axis resolution for images.
+     * Returns supported Y-axis resolution for images for opened TWAIN/WIA/SANE/eSCL device.
      */
     getSupportedYResolutions(): Vintasoft.Twain.WebTwainCapabilitySupportedValuesJS;
 
     /**
-     * Returns supported transfer modes.
+     * Returns supported transfer modes for opened TWAIN device.
      */
     getSupportedTransferModes(): Vintasoft.Twain.WebTwainTransferModeEnumJS[];
 
     /**
-     * Returns supported units of measure.
+     * Returns supported units of measure for opened TWAIN/WIA/SANE/eSCL device.
      */
     getSupportedUnitOfMeasures(): Vintasoft.Twain.WebTwainUnitOfMeasureEnumJS[];
+
+    /**
+     * Returns names of supported scan intents for opened WIA/eSCL device.
+     */
+    getSupportedScanIntents(): string[];
 
     /**
      * Returns supported scan sources of opened SANE device.
@@ -1679,68 +1577,43 @@ declare module Vintasoft.Twain {
     getSupportedSaneScanModes(): string[];
 
     /**
-     * Returns supported scan resolutions of opened SANE device.
-     */
-    getSupportedSaneResolutions(): number[];
-
-    /**
-     * Returns supported scan input sources of opened eSCL device.
-     */
-    getSupportedEsclScanInputSources(): Vintasoft.Twain.WebEsclScanInputSourceEnumJS[];
-
-    /**
-     * Returns names of supported scan intents of opened eSCL device.
-     */
-    getSupportedEsclScanIntents(): string[];
-
-    /**
-     * Returns supported scan color modes of opened eSCL device.
-     */
-    getSupportedEsclScanColorModes(): Vintasoft.Twain.WebEsclScanColorModeEnumJS[];
-
-    /**
-     * Returns supported scan resolutions of opened eSCL device.
-     */
-    getSupportedEsclScanResolutions(): number[];
-
-    /**
-     * Returns information about the default image layout rectangle of TWAIN/SANE/eSCL device.
+     * Returns information about the default image layout rectangle of TWAIN/WIA/SANE/eSCL device.
      */
     getDefaultImageLayout(): Vintasoft.Twain.WebTwainImageLayoutJS;
 
     /**
-     * Sends an asynchronous request to get information about the default image layout rectangle of TWAIN/SANE/eSCL device.
+     * Sends an asynchronous request to get information about the default image layout rectangle of TWAIN/WIA/SANE/eSCL device.
      * @param successFunc A function that will be executed if request is executed successfully. Function prototype: "successFunc(twainDevice, imageLayout)", where 'twainDevice' parameter is an instance of WebTwainDeviceJS class, 'imageLayout' parameter is an object that contains information about the default image layout rectangle of TWAIN device.
      * @param errorFunc A function that will be executed if request is failed. Function prototype: "errorFunc(twainDevice, errorMessage)", where 'twainDevice' parameter is an instance of WebTwainDeviceJS class, 'errorMessage' parameter is string that describes error.
      */
     getDefaultImageLayoutAsync(successFunc: Function, errorFunc: Function): void;
 
     /**
-     * Returns information about the current image layout rectangle of TWAIN/SANE/eSCL device.
+     * Returns information about the current image layout rectangle of TWAIN/WIA/SANE/eSCL device.
      */
     getImageLayout(): Vintasoft.Twain.WebTwainImageLayoutJS;
 
     /**
-     * Sends an asynchronous request to get information about the current image layout rectangle of TWAIN/SANE/eSCL device.
+     * Sends an asynchronous request to get information about the current image layout rectangle of TWAIN/WIA/SANE/eSCL device.
      * @param successFunc A function that will be executed if request is executed successfully. Function prototype: "successFunc(twainDevice, imageLayout)", where 'twainDevice' parameter is an instance of WebTwainDeviceJS class, 'imageLayout' parameter is an object that contains information about current image layout rectangle of TWAIN device.
      * @param errorFunc A function that will be executed if request is failed. Function prototype: "errorFunc(twainDevice, errorMessage)", where 'twainDevice' parameter is an instance of WebTwainDeviceJS class, 'errorMessage' parameter is string that describes error.
      */
     getImageLayoutAsync(successFunc: Function, errorFunc: Function): void;
 
     /**
-     * Resets the image layout rectangle of TWAIN/SANE/eSCL device.
+     * Resets the image layout rectangle of TWAIN/WIA/SANE/eSCL device.
      */
     resetImageLayout(): void;
 
     /**
-     * Sends an asynchronous request to reset the image layout rectangle of TWAIN/SANE/eSCL device.
+     * Sends an asynchronous request to reset the image layout rectangle of TWAIN/WIA/SANE/eSCL device.
      * @param successFunc A function that will be executed if request is executed successfully. Function prototype: "successFunc(twainDevice)", where 'twainDevice' parameter is an instance of WebTwainDeviceJS class.
      * @param errorFunc A function that will be executed if request is failed. Function prototype: "errorFunc(twainDevice, errorMessage)", where 'twainDevice' parameter is an instance of WebTwainDeviceJS class, 'errorMessage' parameter is string that describes error.
      */
     resetImageLayoutAsync(successFunc: Function, errorFunc: Function): void;
 
     /**
-     * Sets the image layout rectangle of TWAIN/SANE/eSCL device.
+     * Sets the image layout rectangle of TWAIN/WIA/SANE/eSCL device.
      * @param x X-coordinate of image layout rectangle.
      * @param y Y-coordinate of image layout rectangle.
      * @param width Width of image layout rectangle.
@@ -1749,7 +1622,7 @@ declare module Vintasoft.Twain {
     setImageLayout(x: number, y: number, width: number, height: number): void;
 
     /**
-     * Sends an asynchronous request to set the image layout rectangle of TWAIN/SANE/eSCL device.
+     * Sends an asynchronous request to set the image layout rectangle of TWAIN/WIA/SANE/eSCL device.
      * @param x X-coordinate of image layout rectangle.
      * @param y Y-coordinate of image layout rectangle.
      * @param width Width of image layout rectangle.
@@ -1758,6 +1631,21 @@ declare module Vintasoft.Twain {
      * @param errorFunc A function that will be executed if request is failed. Function prototype: "errorFunc(twainDevice, errorMessage)", where 'twainDevice' parameter is an instance of WebTwainDeviceJS class, 'errorMessage' parameter is string that describes error.
      */
     setImageLayoutAsync(x: number, y: number, width: number, height: number, successFunc: Function, errorFunc: Function): void;
+
+    /**
+     * Feeds the page in the document feeder of TWAIN device.
+     */
+    feedPage(): void;
+
+    /**
+     * Clears the page in the document feeder of TWAIN device.
+     */
+    clearPage(): void;
+
+    /**
+     * Rewinds the page in the document feeder of TWAIN device.
+     */
+    rewindPage(): void;
 
   }
 
