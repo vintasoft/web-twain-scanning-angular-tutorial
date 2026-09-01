@@ -910,12 +910,12 @@ declare module Vintasoft.Twain {
     set_BitDepthReductionMode(value: Vintasoft.Twain.WebTwainBitDepthReductionModeEnumJS): void;
 
     /**
-     * Gets brightness of gray/palette/color images for current scan session for TWAIN/WIA device.
+     * Gets brightness of gray/palette/color images for current scan session for TWAIN/WIA/SANE/eSCL device.
      */
     get_Brightness(): number;
 
     /**
-     * Sets brightness of gray/palette/color images for current scan session for TWAIN/WIA device.
+     * Sets brightness of gray/palette/color images for current scan session for TWAIN/WIA/SANE/eSCL device.
      * @param value The brightness of gray/palette/color images for current scan session.
      */
     set_Brightness(value: number): void;
@@ -932,12 +932,12 @@ declare module Vintasoft.Twain {
     set_ClearBuffers(value: Vintasoft.Twain.WebTwainClearBufferModeEnumJS): void;
 
     /**
-     * Gets contrast of gray/palette/color images for current scan session for TWAIN/WIA device.
+     * Gets contrast of gray/palette/color images for current scan session for TWAIN/WIA/SANE/eSCL device.
      */
     get_Contrast(): number;
 
     /**
-     * Sets contrast of gray/palette/color images for current scan session for TWAIN/WIA device.
+     * Sets contrast of gray/palette/color images for current scan session for TWAIN/WIA/SANE/eSCL device.
      * @param value The contrast of gray/palette/color images for current scan session.
      */
     set_Contrast(value: number): void;
@@ -1146,12 +1146,12 @@ declare module Vintasoft.Twain {
     set_YResolution(value: number): void;
 
     /**
-     * Gets threshold of black-white images for current scan session for TWAIN device.
+     * Gets threshold of black-white images for current scan session for TWAIN/WIA/SANE/eSCL device.
      */
     get_Threshold(): number;
 
     /**
-     * Sets threshold of black-white images for current scan session for TWAIN device.
+     * Sets threshold of black-white images for current scan session for TWAIN/WIA/SANE/eSCL device.
      * @param value A threshold for black-white images.
      */
     set_Threshold(value: number): void;
