@@ -1583,7 +1583,7 @@ declare module Vintasoft.Twain {
 
     /**
      * Sends an asynchronous request to get information about the default image layout rectangle of TWAIN/WIA/SANE/eSCL device.
-     * @param successFunc A function that will be executed if request is executed successfully. Function prototype: "successFunc(twainDevice, imageLayout)", where 'twainDevice' parameter is an instance of WebTwainDeviceJS class, 'imageLayout' parameter is an object that contains information about the default image layout rectangle of TWAIN device.
+     * @param successFunc A function that will be executed if request is executed successfully. Function prototype: "successFunc(twainDevice, imageLayout)", where 'twainDevice' parameter is an instance of WebTwainDeviceJS class, 'imageLayout' parameter is an object that contains information about the default image layout rectangle, in units of measure specified by get_UnitOfMeasure() function, of TWAIN device.
      * @param errorFunc A function that will be executed if request is failed. Function prototype: "errorFunc(twainDevice, errorMessage)", where 'twainDevice' parameter is an instance of WebTwainDeviceJS class, 'errorMessage' parameter is string that describes error.
      */
     getDefaultImageLayoutAsync(successFunc: Function, errorFunc: Function): void;
@@ -1595,7 +1595,7 @@ declare module Vintasoft.Twain {
 
     /**
      * Sends an asynchronous request to get information about the current image layout rectangle of TWAIN/WIA/SANE/eSCL device.
-     * @param successFunc A function that will be executed if request is executed successfully. Function prototype: "successFunc(twainDevice, imageLayout)", where 'twainDevice' parameter is an instance of WebTwainDeviceJS class, 'imageLayout' parameter is an object that contains information about current image layout rectangle of TWAIN device.
+     * @param successFunc A function that will be executed if request is executed successfully. Function prototype: "successFunc(twainDevice, imageLayout)", where 'twainDevice' parameter is an instance of WebTwainDeviceJS class, 'imageLayout' parameter is an object that contains information about current image layout rectangle, in units of measure specified by get_UnitOfMeasure() function, of TWAIN device.
      * @param errorFunc A function that will be executed if request is failed. Function prototype: "errorFunc(twainDevice, errorMessage)", where 'twainDevice' parameter is an instance of WebTwainDeviceJS class, 'errorMessage' parameter is string that describes error.
      */
     getImageLayoutAsync(successFunc: Function, errorFunc: Function): void;
@@ -1614,19 +1614,19 @@ declare module Vintasoft.Twain {
 
     /**
      * Sets the image layout rectangle of TWAIN/WIA/SANE/eSCL device.
-     * @param x X-coordinate of image layout rectangle.
-     * @param y Y-coordinate of image layout rectangle.
-     * @param width Width of image layout rectangle.
-     * @param height Height of image layout rectangle.
+     * @param x X-coordinate, in units of measure specified by get_UnitOfMeasure() function, of image layout rectangle.
+     * @param y Y-coordinate, in units of measure specified by get_UnitOfMeasure() function, of image layout rectangle.
+     * @param width Width, in units of measure specified by get_UnitOfMeasure() function, of image layout rectangle.
+     * @param height Height, in units of measure specified by get_UnitOfMeasure() function, of image layout rectangle.
      */
     setImageLayout(x: number, y: number, width: number, height: number): void;
 
     /**
      * Sends an asynchronous request to set the image layout rectangle of TWAIN/WIA/SANE/eSCL device.
-     * @param x X-coordinate of image layout rectangle.
-     * @param y Y-coordinate of image layout rectangle.
-     * @param width Width of image layout rectangle.
-     * @param height Height of image layout rectangle.
+     * @param x X-coordinate, in units of measure specified by get_UnitOfMeasure() function, of image layout rectangle.
+     * @param y Y-coordinate, in units of measure specified by get_UnitOfMeasure() function, of image layout rectangle.
+     * @param width Width, in units of measure specified by get_UnitOfMeasure() function, of image layout rectangle.
+     * @param height Height, in units of measure specified by get_UnitOfMeasure() function, of image layout rectangle.
      * @param successFunc A function that will be executed if request is executed successfully. Function prototype: "successFunc(twainDevice)", where 'twainDevice' parameter is an instance of WebTwainDeviceJS class.
      * @param errorFunc A function that will be executed if request is failed. Function prototype: "errorFunc(twainDevice, errorMessage)", where 'twainDevice' parameter is an instance of WebTwainDeviceJS class, 'errorMessage' parameter is string that describes error.
      */
